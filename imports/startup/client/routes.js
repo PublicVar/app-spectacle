@@ -9,6 +9,10 @@ Router.route('/login', {
   name: 'login',
   controller: 'LoginController'
 });
+Router.route('/school/follow/:id', {
+  name: 'school.follow',
+  controller: 'SchoolFollowController'
+});
 
 
 /**

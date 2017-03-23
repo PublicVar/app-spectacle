@@ -1,0 +1,9 @@
+<template name="listSchools">
+    <ul>
+        {{#each school in schools}}
+        <li> {{school.name}} <a href="/school/follow/{{school._id}}">Souscrire</a> </li>
+        {{else}}
+        <li>Pas encore d'école</li>
+        {{/each}}
+    </ul>
+</template>
