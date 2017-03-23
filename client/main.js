@@ -1,7 +1,14 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-// import '../import/startup/client/account-config.js';
-// import '../import/startup/client/routes.js';
-// import './main.html';
+//Import Accounts 
+import '../imports/startup/client/account-config.js';
+
+//load Templates 
+import '../imports/ui/pages/home';
+import '../imports/ui/pages/login';
+
+//Import Router
+import '../imports/startup/client/routes.js';
+
 
