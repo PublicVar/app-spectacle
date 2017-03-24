@@ -8,5 +8,6 @@ import '../imports/ui/pages/schoolFollow';
 
 //Import Router
 import '../imports/startup/client/routes.js';
+import '../imports/api/schools/schools.methods';
 
 
