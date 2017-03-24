@@ -1,3 +1,13 @@
 <template name="schoolFollow">
-    Vous suivez cette école.
+    <h1>{{school.name}}</h1>
+    {{#if isUserFollowTheSchool currentUserId school }}
+    <p>
+        Vous suivez cette école.
+    </p>
+    {{else }}
+    <p>
+        Vous ne suivez plus cette école.
+    </p>
+    {{/if}}
+    <a href="/">Retour</a>
 </template>

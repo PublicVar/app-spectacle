@@ -13,6 +13,10 @@ Router.route('/school/follow/:id', {
   name: 'school.follow',
   controller: 'SchoolFollowController'
 });
+Router.route('/school/unfollow/:id', {
+  name: 'school.unfollow',
+  controller: 'SchoolUnFollowController'
+});
 
 
 

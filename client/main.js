@@ -7,7 +7,8 @@ import '../imports/ui/pages/login';
 import '../imports/ui/pages/schoolFollow';
 
 //Import Router
-import '../imports/startup/client/routes.js';
+import '../imports/startup/client/routes';
 import '../imports/api/schools/schools.methods';
 
 
+import '../imports/startup/client/global-template-helpers.js'; 
