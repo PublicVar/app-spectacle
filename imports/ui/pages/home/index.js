@@ -19,7 +19,6 @@ HomeController = RouteController.extend({
     data: {
         schools: Schools.find()
     },
-    loadingTemplate: 'loading',
     waitOn: function () {
         return Meteor.subscribe('schools');
     }

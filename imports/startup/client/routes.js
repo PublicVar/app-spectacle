@@ -1,6 +1,10 @@
 /**
  * List all routes
  */
+Router.configure({
+	  loadingTemplate: 'loading',
+});
+
 Router.route('/', {
   name: 'home',
   controller: 'HomeController'
