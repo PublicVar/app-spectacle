@@ -10,5 +10,10 @@ import '../imports/ui/pages/schoolFollow';
 import '../imports/startup/client/routes';
 import '../imports/api/schools/schools.methods';
 
+import '../imports/admin/admin-config';
 
 import '../imports/startup/client/global-template-helpers.js'; 
+
+//Import globally the collection for the admin panel
+import {Schools as _Schools}  from "../imports/api/schools/schools";
+Schools = _Schools;

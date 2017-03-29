@@ -1,8 +1,9 @@
+import { Meteor } from 'meteor/meteor';
 /**
  * List all routes
  */
 Router.configure({
-	  loadingTemplate: 'loading',
+	  loadingTemplate: 'loading'
 });
 
 Router.route('/', {
@@ -12,6 +13,11 @@ Router.route('/', {
 Router.route('/login', {
   name: 'login',
   controller: 'LoginController'
+});
+Router.route('/logout',function(){
+  
+  Meteor.logout();
+  Router.go('/login');
 });
 Router.route('/school/follow/:id', {
   name: 'school.follow',
@@ -28,6 +34,20 @@ Router.route('/school/unfollow/:id', {
  * Add Routes checking
  */
 const mustBeSignedIn = function () {
+  if (!Meteor.userId() && Meteor.user()) {
+    // if the user is not logged in, go to the login page
+
+    Router.go('login');
+  } else {
+    // otherwise don't hold up the rest of hooks or our route/action function
+    // from running
+
+      this.next();
+    
+  }
+}
+
+const mustBeAdmin = function () {
   if (!Meteor.userId()) {
     // if the user is not logged in, go to the login page
     Router.go('login');
@@ -36,12 +56,21 @@ const mustBeSignedIn = function () {
     // from running
     this.next();
   }
-}
+} 
+
 const goHome = function () {
   if (Meteor.user()) {
-    Router.go('home');
+    if(Roles.userIsInRole(Meteor.userId(), ['admin'])){
+      Router.go('/admin');
+    }else{
+
+       Router.go('home');
+    }
   } else {
-    this.next();
+
+
+      this.next();
+    
   }
 };
 /** Ensure for all routes the user must be log in */
