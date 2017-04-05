@@ -19,14 +19,11 @@ Router.route('/logout',function(){
   Meteor.logout();
   Router.go('/login');
 });
-Router.route('/school/follow/:id', {
-  name: 'school.follow',
-  controller: 'SchoolFollowController'
+Router.route('/school/show/:id', {
+  name: 'school.show',
+  controller: 'SchoolController'
 });
-Router.route('/school/unfollow/:id', {
-  name: 'school.unfollow',
-  controller: 'SchoolUnFollowController'
-});
+
 
 
 

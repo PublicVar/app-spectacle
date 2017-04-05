@@ -6,7 +6,7 @@ AdminConfig = {
       tableColumns: [{
         label: 'Nom',
         name: 'name'
-      }],
+      }]
     }
   }
 };

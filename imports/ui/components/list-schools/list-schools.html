@@ -1,12 +1,8 @@
 <template name="listSchools">
     <ul>
         {{#each school in schools}}
-        <li> {{school.name}} 
-            {{#if isUserFollowTheSchool currentUserId school}}
-            <a href="/school/unfollow/{{school._id}}">Désinscrire</a> 
-            {{else}}
-            <a href="/school/follow/{{school._id}}">Souscrire</a> 
-            {{/if}}
+        <li> 
+            <a href="/school/show/{{school._id}}">{{school.name}} </a> 
         </li>
         {{else}}
         <li>Pas encore d'école</li>

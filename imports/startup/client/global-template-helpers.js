@@ -10,8 +10,7 @@ Template.registerHelper('currentUserId', () => {
 
 Template.registerHelper('isUserFollowTheSchool', function (userId, school) {
     if (school && school.followers && school.followers.indexOf(userId) >= 0) {
-      return true;
+        return true;
     }
     return false;
-  }
-);
+});

@@ -1,0 +1,18 @@
+<template name="school">
+    <h1 class="text-center">{{school.name}}</h1>
+    {{> flashMessages}}
+
+    <div>
+        {{school.description}}
+    </div>
+    <p class="text-center">
+
+        {{#if isUserFollowTheSchool currentUserId school}}
+        <button class="btn btn-warning btn-lg unfollow">Désinscrire</button> {{else}}
+        <button class="btn btn-primary btn-lg follow">Souscrire</button> {{/if}}
+    </p>
+    <p class="text-center">
+        <a href="/" class="btn btn-default">Retour</a>
+
+    </p>
+</template>

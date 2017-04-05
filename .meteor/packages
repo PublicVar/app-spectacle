@@ -28,3 +28,5 @@ twbs:bootstrap
 fortawesome:fontawesome
 aldeed:collection2-core
 session
+mpowaga:autoform-summernote
+mrt:flash-messages
