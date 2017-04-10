@@ -1,4 +1,5 @@
 import { Session } from 'meteor/session';
+
 //Import Accounts 
 import '../imports/startup/client/account-config.js';
 

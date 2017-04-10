@@ -1,11 +1,22 @@
 <template name="listSchools">
-    <ul>
-        {{#each school in schools}}
-        <li> 
-            <a href="/school/show/{{school._id}}">{{school.name}} </a> 
-        </li>
-        {{else}}
-        <li>Pas encore d'école</li>
-        {{/each}}
-    </ul>
+    <div class="timeline">
+        <ul>
+            {{#each school in schools}}
+            <li class="column">
+                
+                <a href="/school/show/{{school._id.toHexString}}" class="row">
+                    <div class="title {{#if school.finished}} filled {{/if}} col-xs-10">
+                        <h1>{{dateHour school.startAt}} {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{/if}}</h1>
+                        {{school.name}}
+                    </div>
+                    
+                    <span class="glyphicon glyphicon-menu-right col-xs-2" aria-hidden="true"></span>
+                </a>
+            </li>
+            {{else}}
+            <li>Pas encore d'école</li>
+
+            {{/each}}
+        </ul>
+    </div>
 </template>

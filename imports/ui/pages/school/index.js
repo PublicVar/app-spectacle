@@ -12,7 +12,7 @@ import {
 //import the template 
 import '../../components/loading/loading.html';
 import './school.html';
-
+import { Mongo } from 'meteor/mongo';
 
 SchoolController = RouteController.extend({
   template: 'school',
@@ -22,7 +22,7 @@ SchoolController = RouteController.extend({
   },
   data: function () {
     return {
-      school: Schools.findOne(this.params.id),
+      school: Schools.findOne(new Mongo.ObjectID(this.params.id)),
       id: this.params.id
     };
   },

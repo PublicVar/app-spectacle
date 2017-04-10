@@ -7,10 +7,12 @@ import {
 import {
     check
 } from 'meteor/check';
+import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
     'schools.follow' (idSchool) {
         check(idSchool, String);
+        idSchool = new Mongo.ObjectID(idSchool);
 
         if (!Meteor.userId()) {
             throw new Meteor.Error('not-authorized');
@@ -35,6 +37,7 @@ Meteor.methods({
     },
     'schools.unfollow' (idSchool) {
         check(idSchool, String);
+        idSchool = new Mongo.ObjectID(idSchool);
 
         if (!Meteor.userId()) {
             throw new Meteor.Error('not-authorized');

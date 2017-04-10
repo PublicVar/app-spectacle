@@ -25,6 +25,9 @@ let SchemaSchools = new SimpleSchema({
         label: "Name",
         max: 100
     },
+    slug: {
+        type: String
+    },
     followers: {
         type: Array,
     },

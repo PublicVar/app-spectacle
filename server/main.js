@@ -10,7 +10,7 @@ Schools = _Schools;
 
 import '../imports/admin/admin-config';
 
-Meteor.startup(() => {
-  fixtures.loadSchools();
-  // fixtures.loadAdminUsers();
-});
+// Meteor.startup(() => {
+//   fixtures.loadSchools();
+//   // fixtures.loadAdminUsers();
+// });
