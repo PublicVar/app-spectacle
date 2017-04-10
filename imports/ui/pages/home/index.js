@@ -5,9 +5,9 @@ import {
     Schools
 } from '../../../api/schools/schools';
 
-
 //import component to use it. otherwise not working
 import '../../components/list-schools/list-schools.html';
+import '../../components/message-modal/message-modal.html';
 import '../../components/loading/loading.html';
 
 //import the template 
@@ -23,3 +23,4 @@ HomeController = RouteController.extend({
         return Meteor.subscribe('schools');
     }
 });
+

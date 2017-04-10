@@ -16,11 +16,52 @@ Template.registerHelper('isUserFollowTheSchool', function (userId, school) {
 });
 
 Template.registerHelper('dateHour', function (date) {
-   
+
     return moment(date).format('HH:mm');
 });
 Template.registerHelper('isUserFollowed', function (userId, followers) {
-   console.log(userId);
-   console.log(followers);
-    return followers.indexOf(userId) > -1 ? true: false;
+    if (followers) {
+        return followers.indexOf(userId) > -1 ? true : false;
+    }
+    return false;
+});
+
+
+Template.listSchools.events({
+    'click .follow' (event) {
+        let id = $(event.currentTarget).attr('data-id');
+        Meteor.call('schools.follow', id, (error, result) => {
+            if ($("#messageModal")) {
+
+                if (error) {
+                    $("#messageModal #messageModalTitle").html("Avertissez-moi");
+                    $("#messageModal #messageModalBody").html("Une erreur s'est produite. Veuillez vérifier votre connexion internet ou réessayer plus tard.");
+                    $("#messageModal #messageModalBody").attr('class','alert alert-error');
+                } else {
+                    $("#messageModal #messageModalTitle").html("Avertissez-moi");
+                    $("#messageModal #messageModalBody").html("Vous serez averti avant le commencement du spectacle de cette école.");
+                    $("#messageModal #messageModalBody").attr('class','alert alert-success');
+                }
+                $('#messageModal').modal('toggle');
+            }
+        });
+    },
+    'click .unfollow' (event) {
+        let id = $(event.currentTarget).attr('data-id');
+        Meteor.call('schools.unfollow', id, (error, result) => {
+            if ($("#messageModal")) {
+                if (error) {
+                    $("#messageModal #messageModalTitle").html("Avertissez-moi");
+                    $("#messageModal #messageModalBody").html("Une erreur s'est produite. Veuillez vérifier votre connexion internet ou réessayer plus tard.");
+                    $("#messageModal #messageModalBody").attr('class','alert alert-error');
+                } else {
+                    $("#messageModal #messageModalTitle").html("Avertissez-moi");
+                    $("#messageModal #messageModalBody").html("<b>Vous ne serez plus averti</b> avant le commencement du spectacle de cette école.");
+                    $("#messageModal #messageModalBody").attr('class','alert alert-success');
+                }
+                $('#messageModal').modal('toggle');
+            }
+        });
+    }
+
 });
