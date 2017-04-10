@@ -3,15 +3,28 @@
         <ul>
             {{#each school in schools}}
             <li class="column">
-                
-                <a href="/school/show/{{school._id.toHexString}}" class="row">
-                    <div class="title {{#if school.finished}} filled {{/if}} col-xs-10">
-                        <h1>{{dateHour school.startAt}} {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{/if}}</h1>
-                        {{school.name}}
+
+
+                <div class="title {{#if school.finished}} filled {{/if}}">
+                    <a href="/school/show/{{school._id.toHexString}}">
+                        <h1><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
+                        <div>
+                            {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{/if}}
+
+                        </div>
+                    </a>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis magni, quas ea itaque
+                        quam vero eveniet officiis, laudantium labore molestias fugit placeat voluptas similique modi impedit
+                        sapiente dignissimos quae!</p>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary pull-left">Avertissez-moi !</button>
+                        <a href="/school/show/{{school._id.toHexString}}" class="btn btn-default pull-right">En savoir plus ></a>
                     </div>
-                    
-                    <span class="glyphicon glyphicon-menu-right col-xs-2" aria-hidden="true"></span>
-                </a>
+
+                </div>
+
             </li>
             {{else}}
             <li>Pas encore d'école</li>
