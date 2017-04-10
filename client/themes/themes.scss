@@ -30,6 +30,9 @@ a {}
     background: #c0392b;
 }
 
+.timeline .opacity{
+    opacity: .5;
+}
 .timeline .column {
     margin: $medium-spacing 0;
     a {
@@ -41,7 +44,7 @@ a {}
         color: #FFF;
         padding: $small-spacing;
         position: relative;
-        &:before {
+        &:after {
             content:"";
             position: absolute;
             left: -10px;
@@ -64,17 +67,17 @@ a {}
             display: inline-block;
             font-size: 2em;
         }
-        & h1:before {
+        &:before {
             content: "";
             position: absolute;
-            left: -44px;
-            top: 6px;
+            left: -34px;
+            top: 16px;
             width: 20px;
             height: 20px;
             background: #fff;
             border: 3px solid $orange;
         }
-        &.filled h1:before {
+        &.filled:before {
             background: $orange;
         }
     }

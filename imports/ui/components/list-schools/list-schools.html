@@ -2,11 +2,11 @@
     <div class="timeline">
         <ul>
             {{#each school in schools}}
-            <li class="column">
+            <li class="column ">
 
 
                 <div class="title {{#if school.finished}} filled {{/if}}">
-                    <a href="/school/show/{{school._id.toHexString}}">
+                    <a href="/school/show/{{school._id.toHexString}}" class="{{#if school.finished}} opacity {{/if}}">
                         <h1><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
                         <div>
                             {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{/if}}
@@ -14,7 +14,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="description">
+                <div class="description {{#if school.finished}} opacity {{/if}}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis magni, quas ea itaque
                         quam vero eveniet officiis, laudantium labore molestias fugit placeat voluptas similique modi impedit
                         sapiente dignissimos quae!</p>
