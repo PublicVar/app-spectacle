@@ -16,6 +16,20 @@ Template.registerHelper('isUserFollowTheSchool', function (userId, school) {
     return false;
 });
 
+Template.registerHelper('isShowFinished', function (school) {
+    if (school && school.finished) {
+        return true;
+    }
+    return false;
+});
+
+Template.registerHelper('isShowIncoming', function (school) {
+    if (school && school.incoming) {
+        return true;
+    }
+    return false;
+});
+
 Template.registerHelper('dateHour', function (date) {
 
     return moment(date).format('HH:mm');

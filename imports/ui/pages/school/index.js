@@ -48,6 +48,30 @@ Template.school.events({
     Meteor.call('schools.unfollow', controller.state.get('id'), (error, result) => {
       MessageModalBehavior.displayMessageUnfollow(error);
     });
+  },
+  'click .finished'(event){
+    var controller = Iron.controller();
+    Meteor.call('school.show_toggle_finished', controller.state.get('id'),true, (error, result) => {
+      MessageModalBehavior.displayMessageFinished(error);
+    });
+  },
+  'click .unfinished'(event){
+    var controller = Iron.controller();
+    Meteor.call('school.show_toggle_finished', controller.state.get('id'),false, (error, result) => {
+      MessageModalBehavior.displayMessageUnfinished(error);
+    });
+  },
+  'click .incoming'(event){
+    var controller = Iron.controller();
+    Meteor.call('school.show_toggle_incoming', controller.state.get('id'),true, (error, result) => {
+      MessageModalBehavior.displayMessageIncoming(error);
+    });
+  },
+  'click .notincoming'(event){
+    var controller = Iron.controller();
+    Meteor.call('school.show_toggle_incoming', controller.state.get('id'),false, (error, result) => {
+      MessageModalBehavior.displayMessageNotIncoming(error);
+    });
   }
 
 });

@@ -7,28 +7,21 @@ import {
 import {
     check
 } from 'meteor/check';
-import { Mongo } from 'meteor/mongo';
+import {
+    Mongo
+} from 'meteor/mongo';
+import Checker from '../services/checker';
 
 Meteor.methods({
     'schools.follow' (idSchool) {
-        check(idSchool, String);
-        idSchool = new Mongo.ObjectID(idSchool);
 
-        if (!Meteor.userId()) {
-            throw new Meteor.Error('not-authorized');
-        }
+        Checker.isUserLoggedIn();
+        const school = Checker.isSchool(idSchool);
 
-        //check if school exists
-        school = Schools.findOne(idSchool);
 
-        if (!school) {
-            throw new Meteor.Error('not-authorized');
-        }
-
-        //if the user is already a follower remove him
         if (!school.followers || school.followers.indexOf(Meteor.userId()) < 0) {
 
-            Schools.update(idSchool, {
+            Schools.update(school._id, {
                 $push: {
                     followers: Meteor.userId()
                 }
@@ -36,29 +29,42 @@ Meteor.methods({
         }
     },
     'schools.unfollow' (idSchool) {
-        check(idSchool, String);
-        idSchool = new Mongo.ObjectID(idSchool);
 
-        if (!Meteor.userId()) {
-            throw new Meteor.Error('not-authorized');
-        }
+        Checker.isUserLoggedIn();
+        const school = Checker.isSchool(idSchool);
 
-        //check if school exists
-        school = Schools.findOne(idSchool);
+        if (school.followers && school.followers.indexOf(Meteor.userId()) >= 0) {
 
-        if (!school) {
-            throw new Meteor.Error('not-authorized');
-        }
-
-        //if the user is already a follower remove him
-        if (school.followers &&  school.followers.indexOf(Meteor.userId()) >= 0) {
-
-            Schools.update(idSchool, {
+            Schools.update(school._id, {
                 $pull: {
                     followers: Meteor.userId()
                 }
             });
         }
     },
+    'school.show_toggle_finished' (idSchool, isFinished) {
+        check(isFinished,Boolean);
+        Checker.isUserLoggedIn();
+        const school = Checker.isSchool(idSchool);
+
+        Schools.update(school._id, {
+            $set: {
+                finished: isFinished
+            }
+        });
+    },
+    'school.show_toggle_incoming' (idSchool, isIncoming) {
+        check(isIncoming,Boolean);
+        Checker.isUserLoggedIn();
+        const school = Checker.isSchool(idSchool);
+
+        Schools.update(school._id, {
+            $set: {
+                incoming: isIncoming
+            }
+        });
+    }
+    
+    
 
 });

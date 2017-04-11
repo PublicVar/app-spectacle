@@ -10,46 +10,40 @@
         </div>
     </div>
 
-<div class="container">
+    <div class="container">
 
-    <div class="row">
-        <div class="col-xs-12">
-            {{>Template.dynamic template=(getContentsTemplate school.slug)}}
+        <div class="row">
+            <div class="col-xs-12">
+                {{>Template.dynamic template=(getContentsTemplate school.slug)}}
+            </div>
         </div>
     </div>
-</div>
     <div class="text-center actions col-xs-4 col-xs-offset-3">
+
+        {{#if isInRole 'admin'}}
+            {{#if isShowIncoming school}}
+            <button type="button" class="btn btn-warning pull-left notincoming mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle ne va pas commence !</button>
+             {{else}}
+            <button type="button" class="btn btn-warning pull-left incoming mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle va commencer</button>
+             {{/if}}
+
+             {{#if isShowFinished school}}
+             <button type="button" class="btn btn-warning pull-left unfinished mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle n'est pas terminé !</button>
+             {{else}}
+             <button type="button" class="btn btn-warning pull-left finished mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle terminé</button>
+             {{/if}}
+
+             
+        {{/if}}
+
         {{#if isUserFollowTheSchool currentUserId school}}
         <button type="button" class="btn btn-primary pull-left unfollow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Ne plus m'avertir</button>        {{else}}
         <button type="button" class="btn btn-primary pull-left follow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Avertissez-moi !</button>        {{/if}}
         <a href="/" class="btn btn-default btn-fix-size mb-small"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Retour</a>
     </div>
 
+
+
     {{> messageModal }}
 
-</template>
-
-
-<template name="partial_ary_payet">
-    <p>
-        Description Ary Payet
-    </p>
-</template>
-
-<template name="partial_raphael_vidot">
-    <p>
-        Description Raphaël Vidot
-    </p>
-</template>
-
-<template name="partial_cressionniere">
-    <p>
-        Description La Cressionnière
-    </p>
-</template>
-
-<template name="partial_jean_albany">
-    <p>
-        Description Jean Albany
-    </p>
 </template>

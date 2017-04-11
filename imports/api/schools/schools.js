@@ -31,6 +31,14 @@ let SchemaSchools = new SimpleSchema({
     followers: {
         type: Array,
     },
+    finished: {
+        type: Boolean,
+        optional: true
+    },
+    incoming: {
+        type: Boolean,
+        optional: true
+    },
     'followers.$': {
         type: String,
         label: "Followers",
