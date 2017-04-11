@@ -12,6 +12,7 @@ import {
 
 //import the template 
 import '../../components/loading/loading.html';
+import './contents/contents.html';
 import './school.html';
 import MessageModalBehavior from '../../components/message-modal/message-modal';
 
@@ -49,4 +50,9 @@ Template.school.events({
     });
   }
 
+});
+
+Template.school.helpers({
+  getContentsTemplate: slug => "contents_"+slug
+ 
 });
