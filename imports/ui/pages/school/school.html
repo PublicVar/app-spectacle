@@ -1,20 +1,28 @@
 <template name="school">
-    <h1 class="text-center">{{school.name}}</h1>
+    <div class="header row">
+        <div class="col-xs-2">
+            <a href="/"><span class="glyphicon glyphicon-menu-left big-icon" aria-hidden="true"></span></a>
+        </div>
+        <h1 class="text-center col-xs-8"><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
+        <div class="col-xs-2">
+            {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star big-icon" aria-hidden="true"></span>{{/if}}
+
+        </div>
+    </div>
     {{> flashMessages}}
 
     <div>
         {{school.description}}
     </div>
-    <p class="text-center">
-
+    <div class="text-center actions col-xs-4 col-xs-offset-3">
         {{#if isUserFollowTheSchool currentUserId school}}
-        <button class="btn btn-warning btn-lg unfollow">Désinscrire</button> {{else}}
-        <button class="btn btn-primary btn-lg follow">Souscrire</button> {{/if}}
-    </p>
-    <p class="text-center">
-        <a href="/" class="btn btn-default">Retour</a>
+        <button type="button" class="btn btn-primary pull-left unfollow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Ne plus m'avertir</button>        {{else}}
+        <button type="button" class="btn btn-primary pull-left follow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Avertissez-moi !</button>        {{/if}}
+        <a href="/" class="btn btn-default btn-fix-size mb-small"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Retour</a>
+    </div>
 
-    </p>
+    {{> messageModal }}
+
 </template>
 
 

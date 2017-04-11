@@ -1,6 +1,7 @@
 import {
   Meteor
 } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
 import {
   Template
 } from 'meteor/templating';
@@ -12,7 +13,7 @@ import {
 //import the template 
 import '../../components/loading/loading.html';
 import './school.html';
-import { Mongo } from 'meteor/mongo';
+import MessageModalBehavior from '../../components/message-modal/message-modal';
 
 SchoolController = RouteController.extend({
   template: 'school',
@@ -38,21 +39,13 @@ Template.school.events({
     var controller = Iron.controller();
 
     Meteor.call('schools.follow', controller.state.get('id'), (error, result) => {
-      if (error) {
-        FlashMessages.sendError("Une erreur s'est produite. Veuillez réessayer plus tard.");
-      } else {
-        FlashMessages.sendSuccess("Vous suivez cette école.");
-      }
+      MessageModalBehavior.displayMessageFollow(error);
     });
   },
   'click .unfollow' (event) {
     var controller = Iron.controller();
     Meteor.call('schools.unfollow', controller.state.get('id'), (error, result) => {
-      if (error) {
-        FlashMessages.sendError("Une erreur s'est produite. Veuillez réessayer plus tard.");
-      } else {
-        FlashMessages.sendSuccess("Vous ne suivez plus cette école.");
-      }
+      MessageModalBehavior.displayMessageUnfollow(error);
     });
   }
 

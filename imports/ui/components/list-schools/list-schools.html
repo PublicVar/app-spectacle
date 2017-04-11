@@ -9,7 +9,7 @@
                     <a href="/school/show/{{school._id.toHexString}}" class="{{#if school.finished}} opacity {{/if}}">
                         <h1><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
                         <div>
-                            {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{/if}}
+                            {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star big-icon" aria-hidden="true"></span>{{/if}}
 
                         </div>
                     </a>

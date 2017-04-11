@@ -11,7 +11,6 @@ a {}
     margin-left: 8%;
     margin-bottom: 40px;
     position: relative;
-
 }
 
 .timeline ul {
@@ -30,9 +29,10 @@ a {}
     background: #c0392b;
 }
 
-.timeline .opacity{
+.timeline .opacity {
     opacity: .5;
 }
+
 .timeline .column {
     margin: $medium-spacing 0;
     a {
@@ -45,7 +45,7 @@ a {}
         padding: $small-spacing;
         position: relative;
         &:after {
-            content:"";
+            content: "";
             position: absolute;
             left: -10px;
             top: 16px;
@@ -63,9 +63,8 @@ a {}
             width: 87%;
             display: inline-block;
         }
-        & div{
+        & div {
             display: inline-block;
-            font-size: 2em;
         }
         &:before {
             content: "";
@@ -87,26 +86,49 @@ a {}
         color: $text-dark-color;
         text-align: justify;
         background-color: #fff;
-
-        & .actions .btn-primary {
-            color: #FFF;
-            background-color: $orange;
-            border:none;
-            font-size: 1.1em;
-            
-        }
-        & .actions .btn-default {
-            font-size: 1.1em;
-            
-        }
-         & .actions a {
+        & .actions a {
             color: $orange;
         }
-        
     }
     .description .actions:after {
         clear: both;
-        content:" ";
+        content: " ";
         display: table;
     }
+}
+
+.actions .btn-primary {
+    color: #FFF;
+    background-color: $orange;
+    border: none;
+    font-size: 1.1em;
+}
+
+.actions .btn-default {
+    font-size: 1.1em;
+}
+.btn-fix-size{
+    width: 150px;
+}
+.header {
+    background-color: $orange;
+    color: #FFF;
+    padding: $small-spacing;
+    h1 {
+        margin: 0;
+        font-size: 1.8em;
+    }
+    a {
+        color: inherit;
+    }
+}
+
+.big-icon {
+    font-size: 2em;
+}
+.mb-small{
+    margin-bottom: $small-spacing;
+}
+.mt-small{
+    margin-top: $small-spacing;
 }
