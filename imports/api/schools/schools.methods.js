@@ -42,8 +42,33 @@ Meteor.methods({
             });
         }
     },
+    'schools.toggle_follow' (idSchool, isFollow) {
+        check(isFollow, Boolean);
+        Checker.isUserLoggedIn();
+        const school = Checker.isSchool(idSchool);
+        if (isFollow) {
+            if (!school.followers || school.followers.indexOf(Meteor.userId()) < 0) {
+
+                Schools.update(school._id, {
+                    $push: {
+                        followers: Meteor.userId()
+                    }
+                });
+            }
+        } else {
+            if (school.followers && school.followers.indexOf(Meteor.userId()) >= 0) {
+
+                Schools.update(school._id, {
+                    $pull: {
+                        followers: Meteor.userId()
+                    }
+                });
+            }
+        }
+
+    },
     'school.show_toggle_finished' (idSchool, isFinished) {
-        check(isFinished,Boolean);
+        check(isFinished, Boolean);
         Checker.isUserLoggedIn();
         const school = Checker.isSchool(idSchool);
 
@@ -54,7 +79,7 @@ Meteor.methods({
         });
     },
     'school.show_toggle_incoming' (idSchool, isIncoming) {
-        check(isIncoming,Boolean);
+        check(isIncoming, Boolean);
         Checker.isUserLoggedIn();
         const school = Checker.isSchool(idSchool);
 
@@ -64,7 +89,7 @@ Meteor.methods({
             }
         });
     }
-    
-    
+
+
 
 });

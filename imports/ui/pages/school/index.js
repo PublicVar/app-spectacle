@@ -37,39 +37,40 @@ SchoolController = RouteController.extend({
 
 Template.school.events({
   'click .follow' (event) {
-    var controller = Iron.controller();
 
-    Meteor.call('schools.follow', controller.state.get('id'), (error, result) => {
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('schools.toggle_follow', id,true, (error, result) => {
       MessageModalBehavior.displayMessageFollow(error);
     });
   },
   'click .unfollow' (event) {
-    var controller = Iron.controller();
-    Meteor.call('schools.unfollow', controller.state.get('id'), (error, result) => {
+
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('schools.toggle_follow', id,false, (error, result) => {
       MessageModalBehavior.displayMessageUnfollow(error);
     });
   },
   'click .finished'(event){
-    var controller = Iron.controller();
-    Meteor.call('school.show_toggle_finished', controller.state.get('id'),true, (error, result) => {
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('school.show_toggle_finished', id,true, (error, result) => {
       MessageModalBehavior.displayMessageFinished(error);
     });
   },
   'click .unfinished'(event){
-    var controller = Iron.controller();
-    Meteor.call('school.show_toggle_finished', controller.state.get('id'),false, (error, result) => {
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('school.show_toggle_finished', id,false, (error, result) => {
       MessageModalBehavior.displayMessageUnfinished(error);
     });
   },
   'click .incoming'(event){
-    var controller = Iron.controller();
-    Meteor.call('school.show_toggle_incoming', controller.state.get('id'),true, (error, result) => {
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('school.show_toggle_incoming', id,true, (error, result) => {
       MessageModalBehavior.displayMessageIncoming(error);
     });
   },
   'click .notincoming'(event){
-    var controller = Iron.controller();
-    Meteor.call('school.show_toggle_incoming', controller.state.get('id'),false, (error, result) => {
+    let id = $(event.currentTarget).attr('data-id');
+    Meteor.call('school.show_toggle_incoming', id,false, (error, result) => {
       MessageModalBehavior.displayMessageNotIncoming(error);
     });
   }

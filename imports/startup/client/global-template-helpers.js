@@ -45,13 +45,13 @@ Template.registerHelper('isUserFollowed', function (userId, followers) {
 Template.listSchools.events({
     'click .follow' (event) {
         let id = $(event.currentTarget).attr('data-id');
-        Meteor.call('schools.follow', id, (error, result) => {
+        Meteor.call('schools.toggle_follow', id,true, (error, result) => {
             MessageModalBehavior.displayMessageFollow(error);
         });
     },
     'click .unfollow' (event) {
         let id = $(event.currentTarget).attr('data-id');
-        Meteor.call('schools.unfollow', id, (error, result) => {
+        Meteor.call('schools.toggle_follow', id,false, (error, result) => {
             MessageModalBehavior.displayMessageUnfollow(error);
         });
     }
