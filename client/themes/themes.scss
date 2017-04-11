@@ -4,12 +4,11 @@ body {
     background-color: #f3d06b;
 }
 
-a {}
-
 .timeline {
     width: 87%;
     margin-left: 8%;
     margin-bottom: 40px;
+    margin-top: 50px;
     position: relative;
 }
 
@@ -22,7 +21,7 @@ a {}
 .timeline:before {
     content: "";
     position: absolute;
-    top: -40px;
+    top: -50px;
     left: -16px;
     width: 3px;
     height: 100%;
@@ -107,9 +106,11 @@ a {}
 .actions .btn-default {
     font-size: 1.1em;
 }
-.btn-fix-size{
+
+.btn-fix-size {
     width: 150px;
 }
+
 .header {
     background-color: $orange;
     color: #FFF;
@@ -126,9 +127,29 @@ a {}
 .big-icon {
     font-size: 2em;
 }
-.mb-small{
+
+.mb-small {
     margin-bottom: $small-spacing;
 }
-.mt-small{
+
+.mt-small {
     margin-top: $small-spacing;
+}
+
+.top-actions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    padding: 5px 10px 0 0;
+    a {
+        color: white;
+    }
+}
+
+.glow {
+    -webkit-box-shadow: 0px 0px 29px 0px rgba(255, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 29px 0px rgba(255, 0, 0, 1);
+    box-shadow: 0px 0px 29px 0px rgba(255, 0, 0, 1);
 }

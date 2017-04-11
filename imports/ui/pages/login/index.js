@@ -1,7 +1,7 @@
 //import the template 
 import './login';
 LoginController = RouteController.extend({
-  template: 'login',
+  template: 'homeLogin',
   action: function () {
     this.render();
   }

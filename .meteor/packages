@@ -22,7 +22,6 @@ accounts-ui@1.1.9
 accounts-password@1.3.3
 iron:router
 alanning:roles
-yogiben:admin
 dburles:collection-helpers
 twbs:bootstrap
 fortawesome:fontawesome
@@ -32,3 +31,5 @@ mpowaga:autoform-summernote
 mrt:flash-messages
 momentjs:moment
 fourseven:scss
+useraccounts:bootstrap
+softwarerero:accounts-t9n

@@ -24,23 +24,18 @@ Router.route('/school/show/:id', {
   controller: 'SchoolController'
 });
 
-
-
-
 /**
  * Add Routes checking
  */
 const mustBeSignedIn = function () {
-  if (!Meteor.userId() && Meteor.user()) {
-    // if the user is not logged in, go to the login page
 
+  if (!Meteor.userId()) {
+    // if the user is not logged in, go to the login page
     Router.go('login');
   } else {
     // otherwise don't hold up the rest of hooks or our route/action function
     // from running
-
-      this.next();
-    
+    this.next();
   }
 }
 
@@ -57,17 +52,9 @@ const mustBeAdmin = function () {
 
 const goHome = function () {
   if (Meteor.user()) {
-    if(Roles.userIsInRole(Meteor.userId(), ['admin'])){
-      Router.go('/admin');
-    }else{
-
-       Router.go('home');
-    }
+     Router.go('home');
   } else {
-
-
-      this.next();
-    
+    //  this.next();  
   }
 };
 /** Ensure for all routes the user must be log in */
@@ -75,6 +62,10 @@ Router.onBeforeAction(mustBeSignedIn, {
   except: ['login']
 });
 /** Redirect on successful login */
-Router.onBeforeAction(goHome, {
+Router.onAfterAction(goHome, {
   only: ['login']
+});
+
+Router.onAfterAction(goHome, {
+  only: ['logout']
 });

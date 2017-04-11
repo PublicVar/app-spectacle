@@ -82,7 +82,16 @@ Meteor.methods({
         check(isIncoming, Boolean);
         Checker.isUserLoggedIn();
         const school = Checker.isSchool(idSchool);
-
+        if(isIncoming){
+            //remove all previous incoming before set the new one
+            Schools.update({
+                incoming: true
+            }, {
+                $set: {
+                    incoming: false
+                }
+            });
+        }
         Schools.update(school._id, {
             $set: {
                 incoming: isIncoming

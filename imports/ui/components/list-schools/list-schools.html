@@ -2,7 +2,7 @@
     <div class="timeline">
         <ul>
             {{#each school in schools}}
-            <li class="column ">
+            <li class="column {{#if school.incoming}} glow {{/if}}">
 
 
                 <div class="title {{#if school.finished}} filled {{/if}}">

@@ -1,7 +1,9 @@
 import {
   Meteor
 } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
+import {
+  Mongo
+} from 'meteor/mongo';
 import {
   Template
 } from 'meteor/templating';
@@ -39,45 +41,54 @@ Template.school.events({
   'click .follow' (event) {
 
     let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('schools.toggle_follow', id,true, (error, result) => {
+    Meteor.call('schools.toggle_follow', id, true, (error, result) => {
       MessageModalBehavior.displayMessageFollow(error);
     });
   },
   'click .unfollow' (event) {
 
     let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('schools.toggle_follow', id,false, (error, result) => {
+    Meteor.call('schools.toggle_follow', id, false, (error, result) => {
       MessageModalBehavior.displayMessageUnfollow(error);
     });
   },
-  'click .finished'(event){
-    let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('school.show_toggle_finished', id,true, (error, result) => {
-      MessageModalBehavior.displayMessageFinished(error);
-    });
+  'click .finished' (event) {
+    if (confirm("Êtes-vous sûr que le spectacle de cette école est terminée ?")) {
+
+      let id = $(event.currentTarget).attr('data-id');
+      Meteor.call('school.show_toggle_finished', id, true, (error, result) => {
+        MessageModalBehavior.displayMessageFinished(error);
+      });
+    }
   },
-  'click .unfinished'(event){
-    let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('school.show_toggle_finished', id,false, (error, result) => {
-      MessageModalBehavior.displayMessageUnfinished(error);
-    });
+  'click .unfinished' (event) {
+    if (confirm("Êtes-vous sûr que le spectacle de cette école est en cours ?")) {
+      let id = $(event.currentTarget).attr('data-id');
+      Meteor.call('school.show_toggle_finished', id, false, (error, result) => {
+        MessageModalBehavior.displayMessageUnfinished(error);
+      });
+    }
   },
-  'click .incoming'(event){
-    let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('school.show_toggle_incoming', id,true, (error, result) => {
-      MessageModalBehavior.displayMessageIncoming(error);
-    });
+  'click .incoming' (event) {
+    if (confirm("Êtes-vous sûr que le spectacle pour cette école va commencer ?")) {
+      let id = $(event.currentTarget).attr('data-id');
+      Meteor.call('school.show_toggle_incoming', id, true, (error, result) => {
+        MessageModalBehavior.displayMessageIncoming(error);
+      });
+    }
   },
-  'click .notincoming'(event){
-    let id = $(event.currentTarget).attr('data-id');
-    Meteor.call('school.show_toggle_incoming', id,false, (error, result) => {
-      MessageModalBehavior.displayMessageNotIncoming(error);
-    });
+  'click .notincoming' (event) {
+    if (confirm("Êtes-vous sûr que le spectacle pour cette école ne va pas commencer ?")) {
+      let id = $(event.currentTarget).attr('data-id');
+      Meteor.call('school.show_toggle_incoming', id, false, (error, result) => {
+        MessageModalBehavior.displayMessageNotIncoming(error);
+      });
+    }
   }
 
 });
 
 Template.school.helpers({
-  getContentsTemplate: slug => "contents_"+slug
- 
+  getContentsTemplate: slug => "contents_" + slug
+
 });
