@@ -32,7 +32,7 @@ Template.registerHelper('isShowIncoming', function (school) {
 
 Template.registerHelper('dateHour', function (date) {
 
-    return moment(date).format('HH:mm');
+    return moment(date).tz("Indian/Reunion").format('HH:mm');
 });
 Template.registerHelper('isUserFollowed', function (userId, followers) {
     if (followers) {

@@ -15,6 +15,9 @@
                     </a>
                 </div>
                 <div class="description {{#if school.finished}} opacity {{/if}}">
+                    {{#if school.incoming}}
+                    <p class="alert alert-success">Le spectacle va bientôt commencer !</p>
+                    {{/if}}
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis magni, quas ea itaque
                         quam vero eveniet officiis, laudantium labore molestias fugit placeat voluptas similique modi impedit
                         sapiente dignissimos quae!</p>
