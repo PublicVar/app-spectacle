@@ -12,6 +12,13 @@ import {
 } from 'meteor/mongo';
 import Checker from '../services/checker';
 
+    
+Schools.allow({
+    update(userId, doc, fields, modifier) {
+        return Roles.userIsInRole(loggedInUser, ['admin']);
+    }
+});
+
 Meteor.methods({
     'schools.follow' (idSchool) {
 
@@ -82,7 +89,7 @@ Meteor.methods({
         check(isIncoming, Boolean);
         Checker.isUserLoggedIn();
         const school = Checker.isSchool(idSchool);
-        if(isIncoming){
+        if (isIncoming) {
             //remove all previous incoming before set the new one
             Schools.update({
                 incoming: true

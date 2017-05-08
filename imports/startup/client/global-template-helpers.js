@@ -57,3 +57,9 @@ Template.listSchools.events({
     }
 
 });
+
+AutoForm.addHooks(['adminSchoolUpdateForm'], {
+  onSuccess: function(operation, result, template) {
+    Router.go("school.show",{id:this.currentDoc._id.toHexString()});
+  }
+});  

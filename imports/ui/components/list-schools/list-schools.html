@@ -18,9 +18,9 @@
                     {{#if school.incoming}}
                     <p class="alert alert-success">Le spectacle va bientôt commencer !</p>
                     {{/if}}
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis magni, quas ea itaque
-                        quam vero eveniet officiis, laudantium labore molestias fugit placeat voluptas similique modi impedit
-                        sapiente dignissimos quae!</p>
+                    <div>
+                        {{{school.description}}}
+                    </div>
                     <div class="actions">
                         {{#if isUserFollowTheSchool currentUserId school}}
                         <button type="button" class="btn btn-primary pull-left unfollow" data-id="{{school._id.toHexString}}">Ne plus m'avertir</button>

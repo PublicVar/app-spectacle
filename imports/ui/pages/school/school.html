@@ -1,48 +1,58 @@
 <template name="school">
-    <div class="header row">
-        <div class="col-xs-2">
-            <a href="/"><span class="glyphicon glyphicon-menu-left big-icon" aria-hidden="true"></span></a>
-        </div>
-        <h1 class="text-center col-xs-8"><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
-        <div class="col-xs-2">
-            {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star big-icon" aria-hidden="true"></span>{{/if}}
+    <div class="container">
+        <div class="header row">
+            <div class="col-xs-2">
+                <a href="/"><span class="glyphicon glyphicon-menu-left big-icon" aria-hidden="true"></span></a>
+            </div>
+            <h1 class="text-center col-xs-8"><b>{{dateHour school.startAt}} </b><br> {{school.name}}</h1>
+            <div class="col-xs-2">
+                {{#if isUserFollowed currentUserId school.followers}}<span class="glyphicon glyphicon-star big-icon" aria-hidden="true"></span>{{/if}}
 
+            </div>
         </div>
-    </div>
+     </div>
 
     <div class="container">
+        {{#if isInRole 'admin'}}
+        <div class="row">
+            <div class="col-xs-12 text-center ">
+                <div class="btn-group mt-small mb-small" role="group" aria-label="admin">
+                    {{#if isShowIncoming school}}
+                    <button type="button" class="btn btn-primary notincoming" data-id="{{school._id.toHexString}}">Not Inconming</button>
+                    {{else}}
+                    <button type="button" class="btn btn-primary incoming" data-id="{{school._id.toHexString}}">Incoming</button>
+                    {{/if}}
 
+                    {{#if isShowFinished school}}
+                    <button type="button" class="btn btn-info unfinished" data-id="{{school._id.toHexString}}">Start</button>
+                    {{else}}
+                    <button type="button" class="btn btn-info finished" data-id="{{school._id.toHexString}}">End</button>
+                    {{/if}}
+                     <a href="/admin/school/update/{{school._id.toHexString}}" class="btn btn-default">Edit</a>  
+                </div>
+            </div>
+        </div>
+        {{/if}}
         <div class="row">
             <div class="col-xs-12">
-                {{>Template.dynamic template=(getContentsTemplate school.slug)}}
+            
+                {{{school.description}}}
             </div>
         </div>
     </div>
-    <div class="text-center actions col-xs-4 col-xs-offset-3">
+    <div class="text-center actions col-xs-12">
 
-        {{#if isInRole 'admin'}}
-            {{#if isShowIncoming school}}
-            <button type="button" class="btn btn-warning pull-left notincoming mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle ne va pas commence !</button>
-             {{else}}
-            <button type="button" class="btn btn-warning pull-left incoming mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle va commencer</button>
-             {{/if}}
-
-             {{#if isShowFinished school}}
-             <button type="button" class="btn btn-warning pull-left unfinished mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle n'est pas terminé !</button>
-             {{else}}
-             <button type="button" class="btn btn-warning pull-left finished mb-small mt-small" data-id="{{school._id.toHexString}}">Spectacle terminé</button>
-             {{/if}}
-
-             
-        {{/if}}
-
-        {{#if isUserFollowTheSchool currentUserId school}}
-        <button type="button" class="btn btn-primary pull-left unfollow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Ne plus m'avertir</button>        {{else}}
-        <button type="button" class="btn btn-primary pull-left follow btn-fix-size mb-small mt-small" data-id="{{school._id.toHexString}}">Avertissez-moi !</button>        {{/if}}
-        <a href="/" class="btn btn-default btn-fix-size mb-small"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Retour</a>
+        <div class="btn-group btn-group-justified mt-medium" role="group" aria-label="Actions">
+            <div class="btn-group" role="group">
+                {{#if isUserFollowTheSchool currentUserId school}}
+                <button type="button" class="btn btn-primary unfollow " data-id="{{school._id.toHexString}}">Ne plus m'avertir</button>        {{else}}
+                <button type="button" class="btn btn-primary  follow " data-id="{{school._id.toHexString}}">Avertissez-moi !</button>        {{/if}}
+            </div>
+            <div class="btn-group" role="group">
+                <a href="/" class="btn btn-default"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Retour</a>
+            </div>
+        </div>
     </div>
-
-
 
     {{> messageModal }}
 

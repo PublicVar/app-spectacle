@@ -34,3 +34,6 @@ fourseven:scss
 useraccounts:bootstrap
 softwarerero:accounts-t9n
 mrt:moment-timezone
+aldeed:autoform
+tsega:bootstrap3-datetimepicker@=3.1.3_3
+aldeed:autoform-bs-datetimepicker

@@ -135,7 +135,18 @@ body {
 .mt-small {
     margin-top: $small-spacing;
 }
-
+.mt-medium{
+    margin-top: $medium-spacing;
+}
+.mb-medium{
+    margin-bottom: $medium-spacing;
+}
+.mb-large{
+    margin-bottom: $large-spacing;
+}
+.mt-large{
+    margin-top: $large-spacing;
+}
 .top-actions {
     position: absolute;
     top: 0;
@@ -156,4 +167,7 @@ body {
 .medium-text{
     font-size: $medium-size;
     color: #555;
+}
+.bg-white{
+    background-color: #FFF;
 }

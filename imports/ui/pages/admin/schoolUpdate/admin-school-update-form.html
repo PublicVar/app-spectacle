@@ -1,0 +1,21 @@
+<template name="adminSchoolUpdateForm">
+    <div class="container">
+        <h1>Modifier une école</h1>
+        {{# autoForm collection="Schools" doc=school id="adminSchoolUpdateForm" type="update" resetOnSuccess=false}}
+            {{> afQuickField name='name' label="Nom"}}
+            {{> afQuickField name='startAt' label="Débute à"}}
+            {{> afQuickField name='description' rows=6}}
+            {{> afQuickField name='content' rows=6}}           
+            <div class="btn-group btn-group-justified mb-large" role="group" aria-label="Actions">
+                <div class="btn-group" role="group">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>
+                <div class="btn-group" role="group">
+                 <a href="/school/show/{{school._id.toHexString}}" class="btn btn-default"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Retour</a>
+                </div>
+            </div>
+        {{/autoForm}}
+
+        </div>
+        
+</template>

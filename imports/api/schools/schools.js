@@ -1,7 +1,6 @@
-import {
-    Mongo
-} from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+import { Tracker } from 'meteor/tracker'
 SimpleSchema.extendOptions(['autoform']);
 export const Schools = new Mongo.Collection('schools');
 
@@ -44,19 +43,39 @@ let SchemaSchools = new SimpleSchema({
         label: "Followers",
         optional: true
     },
-
+    startAt: {
+        type: Date,
+        autoform: {
+            afFieldInput: {
+                type: "bootstrap-datetimepicker"
+            }
+        }
+    },
     description: {
         type: String,
         label: "Description",
-        optional: true
-        // autoform: {
-        //     afFieldInput: {
-        //         type: 'summernote',
-        //         class: 'editor', // optional
-        //         // settings: // summernote options goes here
-        //     rows: 10
-        //     },
-        // }
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: 'summernote',
+                class: 'editor', // optional
+                // settings: // summernote options goes here
+                rows: 10
+            },
+        }
+    },
+    content: {
+        type: String,
+        label: "Contenu",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: 'summernote',
+                class: 'editor', // optional
+                // settings: // summernote options goes here
+                rows: 10
+            },
+        }
     }
 });
 

@@ -14,7 +14,6 @@ import {
 
 //import the template 
 import '../../components/loading/loading.html';
-import './contents/contents.html';
 import './school.html';
 import MessageModalBehavior from '../../components/message-modal/message-modal';
 
@@ -31,7 +30,6 @@ SchoolController = RouteController.extend({
     };
   },
   action: function () {
-    Session
     this.state.set('id', this.params.id);
     this.render();
   }
