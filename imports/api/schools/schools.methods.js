@@ -12,7 +12,7 @@ import {
 } from 'meteor/mongo';
 import Checker from '../services/checker';
 
-    
+
 Schools.allow({
     update(userId, doc, fields, modifier) {
         return Roles.userIsInRole(loggedInUser, ['admin']);
@@ -98,6 +98,32 @@ Meteor.methods({
                     incoming: false
                 }
             });
+
+
+            //Send noficiations async   
+            const notifications = new Promise((resolve, reject) => {
+
+                school.followers.map(userId => {
+ 
+                    Push.send({
+                        from: 'server',
+                        title: 'Le spectacle va bientôt commencé',
+                        text: 'Le spectacle qui se déroule à ' + school.name + ' va bientôt commencé !',
+                        query: {
+                            // Ex. send to a specific user if using accounts:
+                            userId
+                        } // Query the appCollection
+                        // token: appId or token eg. "{ apn: token }"
+                        // tokens: array of appId's or tokens
+                        // payload: user data
+                        // delayUntil: Date
+                    });
+                });
+                resolve(school.followers);
+            });
+
+
+
         }
         Schools.update(school._id, {
             $set: {

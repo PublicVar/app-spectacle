@@ -52,3 +52,7 @@ App.setPreference('BackgroundColor', '0xffffffff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'default');
 App.setPreference('Orientation', 'all', 'ios');
+
+App.configurePlugin('phonegap-plugin-push', {
+  SENDER_ID: 154129027718
+});
