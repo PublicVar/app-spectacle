@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "build-to-prod": "rm -rf ../app-spectacle-package/* && meteor build --server-only ../app-spectacle-package && mv ../app-spectacle-package/*.tar.gz ../app-spectacle-package/package.tar.gz",
-    "send-to-prod":"scp ../app-spectacle-package/package.tar.gz appspectacle@149.202.50.62:~/app-spectacle"
+    "build-to-prod": "rm -rf ../app-spectacle-package/packages/* && meteor build --server-only ../app-spectacle-package/package && mv ../app-spectacle-package/package/*.tar.gz ../app-spectacle-package/package/package.tar.gz",
+    "send-to-prod":"scp ../app-spectacle-package/package/package.tar.gz appspectacle@149.202.50.62:~/app-spectacle",
+    "export-db": "mongodump -h 127.0.0.1:3001 -d meteor -o ../app-spectacle-package/db && tar -czvf ../app-spectacle-package/db.tar.gz ../app-spectacle-package/db",
+    "send-db-to-prod": "scp ../app-spectacle-package/db.tar.gz appspectacle@149.202.50.62:~/app-spectacle"
   },
   "dependencies": {
     "babel-runtime": "^6.18.0",
