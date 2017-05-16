@@ -1,7 +1,7 @@
 
 App.info({
   id: 'com.clea.simplon.reunion',
-  name: 'CLEA',
+  name: 'Journal de la Ligne D...',
   description: 'Cette application vous permet de vous avertir quand le spectacle de votre enfant va commencer.',
   author: 'Simplon Réunion',
   email: 'nludovic@simplon.co',
