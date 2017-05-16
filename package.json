@@ -2,7 +2,9 @@
   "name": "app-spectacle",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "build-to-prod": "rm -rf ../app-spectacle-package/* && meteor build --server-only ../app-spectacle-package && mv ../app-spectacle-package/*.tar.gz ../app-spectacle-package/package.tar.gz",
+    "send-to-prod":"scp ../app-spectacle-package/package.tar.gz appspectacle@149.202.50.62:~/app-spectacle"
   },
   "dependencies": {
     "babel-runtime": "^6.18.0",
