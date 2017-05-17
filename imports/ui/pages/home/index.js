@@ -20,7 +20,7 @@ HomeController = RouteController.extend({
         schools: Schools.find({},{ sort:{ startAt: 1 } })
     },
     waitOn: function () {
-        return Meteor.subscribe('schools');
+        return Meteor.subscribe('schools-preview');
     }
 });
 

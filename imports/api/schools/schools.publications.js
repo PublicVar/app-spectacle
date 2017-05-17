@@ -10,6 +10,11 @@ if (Meteor.isServer) {
       //  Meteor._sleepForMs(10000); //simulate slow server
     return Schools.find();
   });
+  //Remove the content field because it has images
+   Meteor.publish('schools-preview', function schoolsPublication() {
+    //Meteor._sleepForMs(100000); //simulate slow server
+    return Schools.find({}, { content:0 } );
+  });
    Meteor.publish('school', function schoolPublication(id) {
       // Meteor._sleepForMs(2000); //simulate slow server
      check(id, String);

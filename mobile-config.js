@@ -50,8 +50,8 @@ App.launchScreens({
 // Set PhoneGap/Cordova preferences.
 App.setPreference('BackgroundColor', '0xffffffff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
-App.setPreference('Orientation', 'default');
-App.setPreference('Orientation', 'all', 'ios');
+App.setPreference('Orientation', 'portrait');
+App.setPreference('Orientation', 'portrait', 'ios');
 
 App.configurePlugin('phonegap-plugin-push', {
   SENDER_ID: 154129027718

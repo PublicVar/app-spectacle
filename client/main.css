@@ -4,11 +4,10 @@
 
 .loading {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 40%;
+  -ms-transform: translateX(0) translateY(-50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 .modal-vertical-centered {
