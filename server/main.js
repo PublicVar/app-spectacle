@@ -27,8 +27,8 @@ if (Meteor.isServer) {
             gcm: {
                 apiKey: process.env.APP_ANDROID_API_KEY,
                 projectNumber: 154129027718
-            }
-            // production: true,
+            },
+            production: true,
             // 'sound' true,
             // 'badge' true,
             // 'alert' true,

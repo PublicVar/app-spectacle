@@ -24,6 +24,7 @@ Schools = _Schools;
 
 
 Meteor.startup(() => {
+    //Push.debug = true;
     Push.Configure({
         android: {
             senderID: 154129027718,
@@ -42,10 +43,12 @@ Meteor.startup(() => {
         }
     });
     //display push notif when app is running
-    Push.addListener('alert', function(notification) {
-     alert( notification.message );
-    });
-
+    // Push.addListener('alert', function(notification) {
+    //  alert( notification.message );
+    // });
+    // Push.addListener('error', function(err) {
+    //     alert(err );
+    // });
     Push.deny({
         send: function(userId, notification) {
             return true; // Deny all users to send

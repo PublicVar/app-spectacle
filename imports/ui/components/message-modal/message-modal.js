@@ -20,7 +20,7 @@ class MessageModalDisplayer {
                 $(this.modalBodyId ).attr('class', 'alert alert-error');
             } else {
                 $(this.modalTitleId ).html("Avertissez-moi");
-                $(this.modalBodyId ).html("Vous serez averti avant le commencement du spectacle de cette école.");
+                $(this.modalBodyId ).html("Vous serez averti avant le début du spectacle de cette école.");
                 $(this.modalBodyId ).attr('class', 'alert alert-success');
             }
             $('#messageModal').modal('toggle');
@@ -39,7 +39,7 @@ class MessageModalDisplayer {
                 $(this.modalBodyId ).attr('class', 'alert alert-error');
             } else {
                 $(this.modalTitleId ).html("Avertissez-moi");
-                $(this.modalBodyId ).html("<b>Vous ne serez plus averti</b> avant le commencement du spectacle de cette école.");
+                $(this.modalBodyId ).html("<b>Vous ne serez plus averti</b> avant le début du spectacle de cette école.");
                 $(this.modalBodyId ).attr('class', 'alert alert-success');
             }
             $('#messageModal').modal('toggle');

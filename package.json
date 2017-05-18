@@ -3,10 +3,11 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "build-to-prod": "rm -rf ../app-spectacle-package/packages/* && meteor build --server-only ../app-spectacle-package/package && mv ../app-spectacle-package/package/*.tar.gz ../app-spectacle-package/package/package.tar.gz",
-    "send-to-prod":"scp ../app-spectacle-package/package/package.tar.gz appspectacle@149.202.50.62:~/app-spectacle",
+    "android-device": "meteor run android-device --mobile-server=https://jdlld.simplonreunion.co",
     "export-db": "mongodump -h 127.0.0.1:3001 -d meteor -o ../app-spectacle-package/db && tar -czvf ../app-spectacle-package/db.tar.gz ../app-spectacle-package/db",
-    "send-db-to-prod": "scp ../app-spectacle-package/db.tar.gz appspectacle@149.202.50.62:~/app-spectacle"
+    "send-db-to-prod": "scp ../app-spectacle-package/db.tar.gz appspectacle@149.202.50.62:~/app-spectacle",
+    "build-android": "meteor build ../app-spectacle-build --server=https://jdlld.simplonreunion.co",
+    "sign-android": "cd /home/www/app-spectacle-build/android/project/build/outputs/apk && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 android-release-unsigned.apk journal-de-la-ligne-d &&  $ANDROID_HOME/build-tools/23.0.2/zipalign 4 android-release-unsigned.apk journal-de-la-ligne-d.apk"
   },
   "dependencies": {
     "babel-runtime": "^6.18.0",
