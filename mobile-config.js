@@ -5,7 +5,8 @@ App.info({
   description: 'Cette application vous permet de vous avertir quand le spectacle de votre enfant va commencer.',
   author: 'Simplon Réunion',
   email: 'nludovic@simplon.co',
-  website: 'http://simplonreunion.co'
+  website: 'http://simplonreunion.co',
+  version: '2'
 });
 // Set up resources such as icons and launch screens.
 App.icons({
@@ -52,7 +53,8 @@ App.setPreference('BackgroundColor', '0xffffffff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'portrait');
 App.setPreference('Orientation', 'portrait', 'ios');
-
+ App.setPreference('android:versionCode', '2');
+App.setPreference('android:versionName','0.0.2');
 App.configurePlugin('phonegap-plugin-push', {
   SENDER_ID: 154129027718
 });
