@@ -37,6 +37,26 @@
             <li>Pas encore d'école</li>
 
             {{/each}}
+            <li class="column {{#if school.incoming}} glow {{/if}}">
+
+
+                <div class="title {{#if school.finished}} filled {{/if}}">
+                    <a href="/credits">
+                        <h1>Remerciements</h1>
+      
+                    </a>
+                </div>
+                <div class="description">
+                    <div>
+                        Beaucoup d'acteurs ont contribué à la réussite de ce projet.
+                    </div>
+                    <div class="actions">
+                        <a href="/credits" class="btn btn-default btn-sm pull-right">En savoir + ></a>
+                    </div>
+
+                </div>
+
+            </li>
         </ul>
     </div>
 </template>

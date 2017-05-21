@@ -23,6 +23,9 @@ Router.route('/school/show/:id', {
   name: 'school.show',
   controller: 'SchoolController'
 });
+Router.route('/credits', {
+  name: 'credits'
+});
 
 Router.route('/admin/school/update/:id', {
   name: 'admin.school.update',

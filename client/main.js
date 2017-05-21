@@ -7,6 +7,7 @@ import '../imports/startup/client/account-config.js';
 import '../imports/ui/pages/home';
 import '../imports/ui/pages/login';
 import '../imports/ui/pages/school';
+import '../imports/ui/pages/credits/credits.html';
 import '../imports/ui/pages/admin/schoolUpdate';
 //Import Router
 import '../imports/startup/client/routes';

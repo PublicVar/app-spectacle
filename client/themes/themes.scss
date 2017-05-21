@@ -1,7 +1,7 @@
 @import 'variables';
 // @import 'components/timeline';
 body {
-    background-color: #f3d06b;
+    background-color: $secondary-color;
 }
 
 .timeline {
@@ -39,7 +39,7 @@ body {
         color: inherit;
     }
     .title {
-        background-color: $orange;
+        background-color: $primary-color;
         color: #FFF;
         padding: $small-spacing;
         position: relative;
@@ -52,7 +52,7 @@ body {
             height: 0;
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
-            border-right: 10px solid $orange;
+            border-right: 10px solid ;
         }
         & h1 {
             font-size: 1.4em;
@@ -73,20 +73,20 @@ body {
             width: 20px;
             height: 20px;
             background: #fff;
-            border: 3px solid $orange;
+            border: 3px solid $primary-color;
         }
         &.filled:before {
-            background: $orange;
+            background: $primary-color;
         }
     }
     .description {
-        border: 2px solid $orange;
+        border: 2px solid $primary-color;
         padding: $small-spacing;
         color: $text-dark-color;
         text-align: justify;
         background-color: #fff;
         & .actions a {
-            color: $orange;
+            color: $primary-color;
         }
     }
     .description .actions:after {
@@ -98,7 +98,7 @@ body {
 
 .actions .btn-primary {
     color: #FFF;
-    background-color: $orange;
+    background-color: $primary-color;
     border: none;
     font-size: 1.1em;
 }
@@ -112,7 +112,7 @@ body {
 }
 
 .header {
-    background-color: $orange;
+    background-color: $primary-color;
     color: #FFF;
     padding: $small-spacing;
     h1 {
