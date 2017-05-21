@@ -4,6 +4,7 @@
   "scripts": {
     "start": "meteor run",
     "android-device": "meteor run android-device --mobile-server=https://jdlld.simplonreunion.co",
+    "ios": "meteor run ios --mobile-server=https://jdlld.simplonreunion.co",
     "export-db": "mongodump -h 127.0.0.1:3001 -d meteor -o ../app-spectacle-package/db && tar -czvf ../app-spectacle-package/db.tar.gz ../app-spectacle-package/db",
     "send-db-to-prod": "scp ../app-spectacle-package/db.tar.gz appspectacle@149.202.50.62:~/app-spectacle",
     "build-android": "meteor build ../app-spectacle-build --server=https://jdlld.simplonreunion.co",
