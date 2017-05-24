@@ -12,7 +12,7 @@ if (Meteor.isServer) {
   });
   //Remove the content field because it has images
    Meteor.publish('schools-preview', function schoolsPublication() {
-    //Meteor._sleepForMs(100000); //simulate slow server
+    Meteor._sleepForMs(1000); //simulate slow server
     return Schools.find({}, { content:0 } );
   });
    Meteor.publish('school', function schoolPublication(id) {

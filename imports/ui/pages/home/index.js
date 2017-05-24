@@ -13,13 +13,17 @@ import '../../components/loading/loading.html';
 //import the template 
 import './home.html';
 
-
+var schoolSubscription = null;
 HomeController = RouteController.extend({
     // Pass some variable(s) to the view. data could be an object or a function
     data: {
         schools: Schools.find({},{ sort:{ startAt: 1 } })
     },
     waitOn: function () {
+        /*if(!schoolSubscription){
+            schoolSubscription = Meteor.subscribe('schools-preview');
+        }
+        return schoolSubscription;*/
         return Meteor.subscribe('schools-preview');
     }
 });
