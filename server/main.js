@@ -17,13 +17,13 @@ import '../imports/admin/admin-config';
 if (Meteor.isServer) {
     Meteor.startup(() => {
         Push.Configure({
-            /*apn: {
-                certData: Assets.getText('apnDevCert.pem'),
-                keyData: Assets.getText('apnDevKey.pem'),
-                passphrase: process.env.PASSPHRASE,
-                production: false,
+            apn: {
+                certData: Assets.getText('pem/aps.pem'),
+                keyData: Assets.getText('pem/jdlld.pem'),
+                passphrase: process.env.PASSPHRASE_CERT,
+                production: true,
                 //gateway: 'gateway.push.apple.com',
-            },*/
+            },
             gcm: {
                 apiKey: process.env.APP_ANDROID_API_KEY,
                 projectNumber: 154129027718
