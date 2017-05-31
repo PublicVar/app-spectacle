@@ -24,7 +24,8 @@ HomeController = RouteController.extend({
             schoolSubscription = Meteor.subscribe('schools-preview');
         }
         return schoolSubscription;*/
-        return Meteor.subscribe('schools-preview');
+       return Meteor.subscribe('schools-preview');
     }
+
 });
 
